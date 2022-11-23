@@ -9,10 +9,15 @@ export default function Home() {
       </Head>
       <nav>
         <ul>
-          <li>Test</li>
+          <li>
+            <button>Home</button>
+          </li>
         </ul>
         <ul>
-          <li>test</li>
+          <li>
+            <button>Test</button>
+            {/* want to have a page to chat room using websocket */}
+          </li>
         </ul>
       </nav>
     Hello world
