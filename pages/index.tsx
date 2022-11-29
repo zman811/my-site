@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -15,7 +16,9 @@ export default function Home() {
         </ul>
         <ul>
           <li>
+            <Link href="chat">
             <button>Test</button>
+            </Link>
             {/* want to have a page to chat room using websocket */}
           </li>
         </ul>
