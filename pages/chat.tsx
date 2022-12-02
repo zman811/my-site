@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
+import ChatMessage from "../components/chat"
 let socket;
 
 export default function Chat() {
@@ -15,6 +16,7 @@ export default function Chat() {
 
   const onSubmit = (e) => {
     console.log('here')
+    console.log(chats)
     socket.emit("input-change", input);
   }
 
@@ -37,12 +39,14 @@ export default function Chat() {
   return (
     <>
       <div>Hello</div>
+      <h1>Chat</h1>
       <input
         placeholder="Type something"
         onChange={onChangeHandler}
       />
       <button onClick={(e) => onSubmit(e)}>Submit</button>
-      {chats}
+      <h2>chats</h2>
+      {[...Array(chats.length)].map((message, i) => <ChatMessage key={i} message={chats[i]}/>)}
     </>
   );
 }
