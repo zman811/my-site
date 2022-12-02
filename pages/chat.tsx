@@ -30,6 +30,8 @@ export default function Chat() {
 
     socket.on("connect", () => {
       console.log("connected");
+      socket.emit("load", 'test');
+      console.log('emmit')
     });
 
     socket.on('update-input', msg => {
