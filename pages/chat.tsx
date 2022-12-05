@@ -7,6 +7,7 @@ export default function Chat() {
   // want to try and make a chat room that uses websocket to live update the chat
   const [input, setInput] = useState('');
   const [chats, setChats] = useState([]);
+  const [userInput, setUserInput] = useState('');
   const [userName, setUserName] = useState('');
 
   const onChangeHandler = (e) => {
@@ -41,15 +42,14 @@ export default function Chat() {
   };
   const userNameSubmit = (e) => {
     e.preventDefault()
-    console.log(e.target)
-    setUserName(e.target.value)
+    setUserName(userInput)
   }
   if(userName === '') {
     return (
       <>
       <div>what is your username?</div>
       <form onSubmit={userNameSubmit}>
-        <input type="text" />
+        <input type="text" value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
         <input type="submit" />
       </form>
       </>
@@ -65,7 +65,7 @@ export default function Chat() {
       />
       <button onClick={(e) => onSubmit(e)}>Submit</button>
       <h2>chats</h2>
-      {[...Array(chats.length)].map((_, i) => <ChatMessage key={i} message={chats[i]}/>)}
+      {[...Array(chats.length)].map((_, i) => <ChatMessage key={i} user={userName} message={chats[i]}/>)}
     </>
   );
 }

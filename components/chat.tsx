@@ -1,6 +1,6 @@
-let Chat = ({message}) => {
+let Chat = ({message, user}) => {
   return (
-    <div>user: {message} </div>
+    <div>{user}: {message} </div>
   )
 }
 
