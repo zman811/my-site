@@ -19,7 +19,7 @@ export default function Chat() {
   const onSubmit = (e) => {
     console.log('here')
     console.log(chats)
-    socket.emit("input-change", input);
+    socket.emit("input-change", {input, userName});
   }
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export default function Chat() {
       />
       <button onClick={(e) => onSubmit(e)}>Submit</button>
       <h2>chats</h2>
-      {[...Array(chats.length)].map((_, i) => <ChatMessage key={i} user={userName} message={chats[i]}/>)}
+      {[...Array(chats.length)].map((_, i) => <ChatMessage key={i} user={chats[i].userName} message={chats[i].input}/>).reverse().slice(0, 25)}
     </>
   );
 }
