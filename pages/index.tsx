@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Link from "next/link";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
@@ -17,14 +17,16 @@ export default function Home() {
         <ul>
           <li>
             <Link href="chat">
-            <button>Test</button>
+              <button>Chat Room</button>
             </Link>
-            {/* want to have a page to chat room using websocket */}
           </li>
         </ul>
       </nav>
-    Hello world
-
+      <h1>Testing website</h1>
+      <h3>
+        This is a site made for testing diffrent tech and ways of doing things.
+        Each page from here is set around a diffrent technique or technogoly
+      </h3>
     </div>
-  )
+  );
 }
